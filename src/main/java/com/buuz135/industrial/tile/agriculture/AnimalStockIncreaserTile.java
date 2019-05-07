@@ -78,7 +78,7 @@ public class AnimalStockIncreaserTile extends WorkingAreaElectricMachine {
 
         AxisAlignedBB area = getWorkingArea();
         List<EntityAnimal> animals = this.world.getEntitiesWithinAABB(EntityAnimal.class, area);
-        if (animals.size() == 0 || animals.size() > 35) return 0;
+        if (animals.size() == 0 || animals.size() > 999) return 0;
         //Removing from the list animals that can't breed
         animals.removeIf(entityAnimal -> entityAnimal.isChild() || entityAnimal.getGrowingAge() != 0 || getFirstBreedingItem(entityAnimal).isEmpty() || entityAnimal.isInLove() || BlockRegistry.animalStockIncreaserBlock.entityBlacklist.contains(EntityList.getKey(entityAnimal).toString()));
         for (EntityAnimal firstParent : animals) {
